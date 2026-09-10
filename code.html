@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#0f131c;color:#dfe2ee;}body{overscroll-behavior:none;-webkit-font-smoothing:antialiased;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "error": "#ffb4ab", "on-secondary-fixed": "#001e2f", "inverse-on-surface": "#2c3039", "background": "#0f131c", "on-surface": "#dfe2ee", "tertiary-container": "#00843a", "primary-fixed": "#dae1ff", "secondary-fixed-dim": "#89ceff", "on-secondary-container": "#00344e", "surface-container-lowest": "#0a0e16", "surface-container-highest": "#31353e", "tertiary-fixed-dim": "#4ae176", "on-tertiary-container": "#e7ffe5", "primary-fixed-dim": "#b3c5ff", "primary-container": "#0066ff", "outline": "#8c90a1", "secondary": "#89ceff", "surface-variant": "#31353e", "on-background": "#dfe2ee", "on-error-container": "#ffdad6", "secondary-container": "#00a2e6", "surface-bright": "#353942", "inverse-primary": "#0054d6", "on-primary-fixed-variant": "#003fa4", "surface-dim": "#0f131c", "surface-tint": "#b3c5ff", "surface": "#0f131c", "primary": "#b3c5ff", "surface-container": "#1c2028", "on-primary-container": "#f8f7ff", "on-secondary-fixed-variant": "#004c6e", "on-surface-variant": "#c2c6d8", "on-tertiary-fixed": "#002109", "on-primary-fixed": "#001849", "on-error": "#690005", "error-container": "#93000a", "outline-variant": "#424656", "on-secondary": "#00344d", "on-tertiary-fixed-variant": "#005321", "secondary-fixed": "#c9e6ff", "tertiary-fixed": "#6bff8f", "on-tertiary": "#003915", "surface-container-low": "#181c24", "inverse-surface": "#dfe2ee", "on-primary": "#002b75", "tertiary": "#4ae176", "surface-container-high": "#262a33" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "space-sm": "0.75rem", "gutter-tablet": "1.5rem", "space-md": "1rem", "space-2xs": "0.25rem", "max-width": "72rem", "gutter-mobile": "1rem", "space-2xl": "3rem", "space-xl": "2rem", "space-4xl": "6rem", "space-3xl": "4.5rem", "space-lg": "1.5rem", "gutter-desktop": "2rem", "space-xs": "0.5rem" }, "fontFamily": { "label-badge": ["JetBrains Mono"], "headline-lg-mobile": ["Space Grotesk"], "display-hero-mobile": ["Space Grotesk"], "body-lg": ["Inter"], "label-code": ["JetBrains Mono"], "headline-lg": ["Space Grotesk"], "body-sm": ["Inter"], "headline-sm": ["Space Grotesk"], "headline-md": ["Space Grotesk"], "display-hero": ["Space Grotesk"], "body-md": ["Inter"] }, "fontSize": { "label-badge": ["11px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }], "headline-lg-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "display-hero-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "body-lg": ["18px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "400" }], "label-code": ["13px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "500" }], "headline-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }], "body-sm": ["14px", { "lineHeight": "22px", "letterSpacing": "0em", "fontWeight": "400" }], "headline-sm": ["20px", { "lineHeight": "28px", "letterSpacing": "0em", "fontWeight": "500" }], "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "display-hero": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.03em", "fontWeight": "700" }], "body-md": ["16px", { "lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "400" }] } } } };</script></head><body class="bg-surface font-body-md text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 pt-safe bg-surface-container-lowest/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.3)]"><div class="h-16 px-space-md flex items-center justify-between gap-space-xs"><div class="flex items-center gap-space-xs min-w-0"><img alt="Terminal &amp; AI Node Monogram" class="h-8 w-auto object-contain flex-shrink-0" src="https://lh3.googleusercontent.com/aida/AEtjO1W-PRFVyYArq_ehLLJj2Fm6m4ryzdct_a81V1tTQo0cPW9WdTeSzeuINZeq-3_RUSIZnjOfPHeZuHdL47gkjoPkFISkZ5R0lz0Da5qkGZVDhBOYce4K3pEdsXJpggZATXgjNgWqLFflL2c5DGjoSv3swtjJ9eS56S26yrMP1Wx_caZJ_1Dn6ygpu_8RYqDrQzJBFYTCuJgkMQE97qVP_Wi1yXjxbB0tfD7YOHMhlz7cGHAjRbXZlXngoHBf"/><div class="flex flex-col min-w-0"><div class="flex items-center gap-space-2xs"><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight font-bold truncate">DEV.SPACE</span><span class="font-label-code text-label-code text-on-surface-variant/60 hidden xs:inline">/</span><span class="font-label-code text-label-code text-primary font-medium truncate">Projects</span></div><div class="flex items-center gap-1.5"><span class="relative flex h-2 w-2 flex-shrink-0"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-container opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-primary-container"></span></span><span class="font-label-badge text-[10px] leading-tight tracking-wider uppercase text-secondary truncate">Open to Roles</span></div></div></div><div class="flex items-center gap-space-xs flex-shrink-0"><a class="min-h-[44px] min-w-[44px] flex items-center justify-center p-space-2xs rounded-full hover:bg-surface-container-high transition-colors" data-path="contact" href="#"><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-1 ring-outline-variant/40" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1YO9z3YBNSpMzqDqKilW0S7M8c-wZ2OWeBfUlOjTGDQzYBPJ9RnGbd-sAZgejXdUj-wemUi_I63XY501wbQrKZzGouDiN5lzKksJuZxAZEy9RRnN8Bxkt4ZNw5Tr1_pAgOpi1vS9J5_sfyeUAsfnqnIY515AeCheN1uHmJon98XveLFVMJJIwKZWQJSsj48d1zjkEHiv_8rOJQ2ZJk_v5WHST-0LjR0TOHjnKuaDYHp1tpj9v1CyzQQ"/></a></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 pb-24 bg-surface"><div class="flex flex-col w-full px-space-md py-space-lg space-y-space-xl">
+<!-- Interactive Filter Controls -->
+<section class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-2xs">
+<span class="material-symbols-outlined text-[16px] text-secondary">tune</span>
+<span class="font-label-badge text-label-badge text-on-surface-variant uppercase">Index Filters</span>
+</div>
+<span class="font-label-code text-[11px] text-outline" id="active-filter-indicator">Viewing 4/4 Builds</span>
+</div>
+<!-- Filter chips track -->
+<div class="flex items-center gap-space-xs overflow-x-auto pb-space-2xs pt-space-2xs -mx-space-md px-space-md scrollbar-none">
+<button class="filter-pill group relative flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary-container text-on-primary-container font-label-badge text-label-badge transition-all flex-shrink-0 shadow-sm" onclick="filterCategory('all', this)">
+<span>All</span>
+<span class="px-1.5 py-0.2 bg-on-primary-container/20 rounded-full text-[10px]">4</span>
+</button>
+<button class="filter-pill group relative flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container text-on-surface-variant hover:text-on-surface font-label-badge text-label-badge transition-all flex-shrink-0" onclick="filterCategory('ai', this)">
+<span>AI &amp; ML</span>
+<span class="px-1.5 py-0.2 bg-surface-container-high rounded-full text-[10px] text-outline">2</span>
+</button>
+<button class="filter-pill group relative flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container text-on-surface-variant hover:text-on-surface font-label-badge text-label-badge transition-all flex-shrink-0" onclick="filterCategory('cyber', this)">
+<span>Cybersecurity</span>
+<span class="px-1.5 py-0.2 bg-surface-container-high rounded-full text-[10px] text-outline">1</span>
+</button>
+<button class="filter-pill group relative flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container text-on-surface-variant hover:text-on-surface font-label-badge text-label-badge transition-all flex-shrink-0" onclick="filterCategory('software', this)">
+<span>Software Dev</span>
+<span class="px-1.5 py-0.2 bg-surface-container-high rounded-full text-[10px] text-outline">1</span>
+</button>
+</div>
+</section>
+<!-- Project Catalog -->
+<section class="flex flex-col space-y-space-lg" id="projects-container">
+<!-- Project 1: LLM Context Window Benchmark -->
+<article class="project-card flex flex-col bg-surface-container-low rounded-xl overflow-hidden shadow-sm transition-all duration-300" data-category="ai">
+<!-- Media preview with visual cue -->
+<div class="relative w-full h-44 bg-surface-container-lowest overflow-hidden">
+<img class="w-full h-full object-cover opacity-80" data-alt="Minimalist dark mode technical interface showing vector token retrieval heatmap matrix with subtle electric blue telemetry and dense latency diagnostic metrics in a clean engineering terminal display" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfmfcbRxzmrry9ZcwSxkxY2SyMb8pKVb53wCmNhT33Nwu6cZ1Anrr7lMD29xeuiq2WGts-wc8EEuSpwR0asNIdaMYH_dvQjQ27DBKBaNwAmDHgk-x3kkymCwmLVa0g-GRioaY-zsn7pvDfolG0C9wl3ySISebpZe9WwvgmLCIkrjqeDkP37cOVu9fZGztArC4STRcgJIdfXoKjwO9dAe8kAULgWxPp5MgZCwi6s1eMH2LCWjyYOb_Ajg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-surface-container-low/40 to-transparent"></div>
+<div class="absolute top-space-sm left-space-sm flex items-center gap-space-2xs px-2.5 py-1 rounded-full bg-surface-container-lowest/80 backdrop-blur-md">
+<span class="h-2 w-2 rounded-full bg-secondary-container animate-pulse"></span>
+<span class="font-label-badge text-label-badge text-secondary">EXP_01 // ACTIVE</span>
+</div>
+<div class="absolute bottom-space-xs right-space-sm font-label-code text-label-code text-on-surface-variant/80">
+          7B Parameter Suite
+        </div>
+</div>
+<!-- Content -->
+<div class="flex flex-col p-space-md space-y-space-md">
+<div>
+<div class="flex items-start justify-between gap-space-xs">
+<h2 class="font-headline-sm text-headline-sm text-on-surface tracking-tight">LLM Context Window Benchmark</h2>
+<span class="material-symbols-outlined text-outline text-[20px]">precision_manufacturing</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Practical AI experiment exploring recall accuracy across open-source quantized models.</p>
+</div>
+<!-- System Architecture Blueprint Breakdown -->
+<div class="flex flex-col gap-space-2xs p-space-sm bg-surface-container rounded-lg">
+<div class="flex items-center gap-1.5 text-secondary font-label-code text-label-code">
+<span class="material-symbols-outlined text-[15px]">terminal</span>
+<span>What I built</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface">Python test runner simulating needle-in-a-haystack retrieval on 7B parameter models.</p>
+</div>
+<!-- Reflection / Learned Note -->
+<div class="flex flex-col gap-space-2xs p-space-sm bg-surface-container-high/60 rounded-lg">
+<div class="flex items-center gap-1.5 text-tertiary font-label-code text-label-code">
+<span class="material-symbols-outlined text-[15px]">lightbulb</span>
+<span>Key Takeaway</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Learned tokenization nuances, memory tradeoffs on consumer GPUs.</p>
+</div>
+<!-- Tags -->
+<div class="flex flex-wrap gap-1.5 pt-space-2xs">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-secondary font-label-code text-[11px]">Python</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-secondary font-label-code text-[11px]">Transformers</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-secondary font-label-code text-[11px]">PyTorch</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-secondary font-label-code text-[11px]">Local AI</span>
+</div>
+<!-- Action CTAs -->
+<div class="flex items-center gap-space-xs pt-space-xs">
+<a class="flex-1 flex items-center justify-center gap-1.5 h-10 px-space-sm rounded-lg bg-primary-container text-on-primary-container font-body-sm font-semibold transition-transform active:scale-[0.98] shadow-sm" href="#">
+<span class="material-symbols-outlined text-[18px]">description</span>
+<span>View README</span>
+</a>
+<a class="flex-1 flex items-center justify-center gap-1.5 h-10 px-space-sm rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high font-body-sm font-medium transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px]">science</span>
+<span>Lab Notes</span>
+</a>
+</div>
+</div>
+</article>
+<!-- Project 2: Vulnerability Scanner & Port Auditor -->
+<article class="project-card flex flex-col bg-surface-container-low rounded-xl overflow-hidden shadow-sm transition-all duration-300" data-category="cyber">
+<!-- Media preview with visual cue -->
+<div class="relative w-full h-44 bg-surface-container-lowest overflow-hidden">
+<img class="w-full h-full object-cover opacity-80" data-alt="Clean cybersecurity packet inspector terminal dashboard displaying raw socket handshake logs, open TCP port statuses, and minimal red amber diagnostics against dark slate aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDl4qa49DE97dKJFPi8YvsoqUl6IqA12iWlTB07-vgoy_ka1k48ygGIBrPy81l0W_lhQQ1iEY81LgK_oggsvvte_Bv3V3FsuwsmNN3nzngJu0SGEPFaOTYuprIEqcflOwF4gMFCMqW1l-3I9yLCK9NSN7hFeeA__vFlJjwtLtJzV25BPg4gNVzoJLSzTdA6dr7rPhG_P90O_vB5M0cx8KwFVFv1N3umNOks9yI6knHfcJxET_fjH583KA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-surface-container-low/40 to-transparent"></div>
+<div class="absolute top-space-sm left-space-sm flex items-center gap-space-2xs px-2.5 py-1 rounded-full bg-surface-container-lowest/80 backdrop-blur-md">
+<span class="h-2 w-2 rounded-full bg-tertiary"></span>
+<span class="font-label-badge text-label-badge text-tertiary">LAB // AUDIT_PASSED</span>
+</div>
+<div class="absolute bottom-space-xs right-space-sm font-label-code text-label-code text-on-surface-variant/80">
+          RFC Socket Impl
+        </div>
+</div>
+<!-- Content -->
+<div class="flex flex-col p-space-md space-y-space-md">
+<div>
+<div class="flex items-start justify-between gap-space-xs">
+<h2 class="font-headline-sm text-headline-sm text-on-surface tracking-tight">Vulnerability Scanner &amp; Port Auditor</h2>
+<span class="material-symbols-outlined text-outline text-[20px]">shield</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Hands-on cybersecurity tool for auditing exposed test lab ports and headers.</p>
+</div>
+<!-- Breakdown -->
+<div class="flex flex-col gap-space-2xs p-space-sm bg-surface-container rounded-lg">
+<div class="flex items-center gap-1.5 text-secondary font-label-code text-label-code">
+<span class="material-symbols-outlined text-[15px]">terminal</span>
+<span>What I built</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface">Asynchronous scanner checking common service misconfigurations in a closed home lab environment.</p>
+</div>
+<!-- Reflection -->
+<div class="flex flex-col gap-space-2xs p-space-sm bg-surface-container-high/60 rounded-lg">
+<div class="flex items-center gap-1.5 text-tertiary font-label-code text-label-code">
+<span class="material-symbols-outlined text-[15px]">lightbulb</span>
+<span>Key Takeaway</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Gained deeper appreciation for RFC network protocol standards and socket programming.</p>
+</div>
+<!-- Tags -->
+<div class="flex flex-wrap gap-1.5 pt-space-2xs">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-secondary font-label-code text-[11px]">Python</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-secondary font-label-code text-[11px]">Network Security</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-secondary font-label-code text-[11px]">Nmap API</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-secondary font-label-code text-[11px]">Sockets</span>
+</div>
+<!-- Action CTA -->
+<div class="pt-space-xs">
+<a class="w-full flex items-center justify-center gap-1.5 h-10 px-space-sm rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high font-body-sm font-semibold transition-all" href="#">
+<span class="material-symbols-outlined text-[18px]">code</span>
+<span>View Repository</span>
+</a>
+</div>
+</div>
+</article>
+<!-- Project 3: Automated Dataset Cleaner for ML -->
+<article class="project-card flex flex-col bg-surface-container-low rounded-xl overflow-hidden shadow-sm transition-all duration-300" data-category="ai">
+<div class="flex flex-col p-space-md space-y-space-md">
+<div class="flex items-start justify-between gap-space-xs">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="px-2 py-0.5 rounded-full bg-secondary-container/20 text-secondary font-label-badge text-[10px]">UTILITY</span>
+<span class="font-label-code text-[11px] text-outline">v0.4.1</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface tracking-tight">Automated Dataset Cleaner for ML</h2>
+</div>
+<span class="material-symbols-outlined text-outline text-[20px]">dataset</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Software utility to sanitize and tokenize noisy tabular student data.</p>
+<!-- Concise Metric / Architecture preview -->
+<div class="grid grid-cols-2 gap-space-xs p-space-sm bg-surface-container rounded-lg">
+<div class="flex flex-col">
+<span class="font-label-badge text-[10px] text-outline uppercase">Imputation Rule</span>
+<span class="font-label-code text-label-code text-on-surface font-semibold">Iterative SVD</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-badge text-[10px] text-outline uppercase">Processing Rate</span>
+<span class="font-label-code text-label-code text-secondary font-semibold">~42k rows/s</span>
+</div>
+</div>
+<!-- Tags -->
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-secondary font-label-code text-[11px]">Data Prep</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-secondary font-label-code text-[11px]">Pandas</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-secondary font-label-code text-[11px]">scikit-learn</span>
+</div>
+<!-- Action -->
+<div class="pt-space-2xs">
+<a class="inline-flex items-center gap-1 text-secondary font-label-code text-label-code hover:underline" href="#">
+<span>Inspect Pipeline Source</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</article>
+<!-- Project 4: Secure Key-Value Store with Auth -->
+<article class="project-card flex flex-col bg-surface-container-low rounded-xl overflow-hidden shadow-sm transition-all duration-300" data-category="software">
+<div class="flex flex-col p-space-md space-y-space-md">
+<div class="flex items-start justify-between gap-space-xs">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="px-2 py-0.5 rounded-full bg-tertiary-container/30 text-tertiary-fixed-dim font-label-badge text-[10px]">CORE ARCH</span>
+<span class="font-label-code text-[11px] text-outline">REST API</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface tracking-tight">Secure Key-Value Store with Auth</h2>
+</div>
+<span class="material-symbols-outlined text-outline text-[20px]">lock</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Simple cryptographic key-value server exploring Argon2 hashing and JWT rotation.</p>
+<!-- Mini Security Spec Card -->
+<div class="flex items-center gap-space-sm p-space-sm bg-surface-container rounded-lg">
+<div class="flex items-center justify-center h-8 w-8 rounded-lg bg-surface-container-high text-secondary flex-shrink-0">
+<span class="material-symbols-outlined text-[18px]">key</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-code text-label-code text-on-surface truncate">Argon2id + AES-256-GCM</span>
+<span class="font-label-badge text-[10px] text-outline">Strict Memory Hardness</span>
+</div>
+</div>
+<!-- Tags -->
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-secondary font-label-code text-[11px]">FastAPI</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-secondary font-label-code text-[11px]">Cryptography</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-secondary font-label-code text-[11px]">SQLite</span>
+</div>
+<!-- Action -->
+<div class="pt-space-2xs">
+<a class="inline-flex items-center gap-1 text-secondary font-label-code text-label-code hover:underline" href="#">
+<span>Explore Crypto Implementation</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</article>
+</section>
+<!-- Grounding Philosophy Note -->
+<section class="mt-space-lg p-space-md rounded-xl bg-surface-container-lowest/80 border-0 flex items-start gap-space-sm shadow-sm">
+<div class="flex items-center justify-center w-8 h-8 rounded-full bg-surface-container flex-shrink-0 mt-0.5 text-secondary">
+<span class="material-symbols-outlined text-[18px]">info</span>
+</div>
+<div class="flex flex-col space-y-1">
+<h3 class="font-label-code text-label-code text-on-surface font-semibold">Engineering Footnote</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+        All projects are learning-oriented prototypes developed to understand underlying architectures rather than off-the-shelf wrappers.
+      </p>
+</div>
+</section>
+</div>
+<script>
+  function filterCategory(category, buttonEl) {
+    const cards = document.querySelectorAll('.project-card');
+    const buttons = document.querySelectorAll('.filter-pill');
+    const indicator = document.getElementById('active-filter-indicator');
+    
+    // Reset buttons state
+    buttons.forEach(btn => {
+      btn.classList.remove('bg-primary-container', 'text-on-primary-container');
+      btn.classList.add('bg-surface-container', 'text-on-surface-variant');
+      const countPill = btn.querySelector('span:last-child');
+      if (countPill) {
+        countPill.classList.remove('bg-on-primary-container/20');
+        countPill.classList.add('bg-surface-container-high', 'text-outline');
+      }
+    });
+
+    // Activate selected button
+    buttonEl.classList.add('bg-primary-container', 'text-on-primary-container');
+    buttonEl.classList.remove('bg-surface-container', 'text-on-surface-variant');
+    const activeCount = buttonEl.querySelector('span:last-child');
+    if (activeCount) {
+      activeCount.classList.add('bg-on-primary-container/20');
+      activeCount.classList.remove('bg-surface-container-high', 'text-outline');
+    }
+
+    // Filter project list
+    let visibleCount = 0;
+    cards.forEach(card => {
+      const cardCat = card.getAttribute('data-category');
+      if (category === 'all' || cardCat === category) {
+        card.style.display = 'flex';
+        visibleCount++;
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    if (indicator) {
+      indicator.textContent = `Viewing ${visibleCount}/4 Builds`;
+    }
+  }
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface-container-lowest/85 backdrop-blur-xl shadow-[0_-1px_12px_rgba(0,0,0,0.35)]" data-active-classes="text-primary-container"><div class="flex items-center justify-around h-16 px-space-xs max-w-max-width mx-auto"><a class="min-h-[44px] min-w-[44px] px-space-xs flex flex-col items-center justify-center gap-0.5 text-on-surface-variant hover:text-on-surface transition-colors" data-path="overview" href="#"><span class="material-symbols-outlined text-[20px]">terminal</span><span class="font-label-badge text-[10px] tracking-normal uppercase">Overview</span></a><a aria-current="page" class="min-h-[44px] min-w-[44px] px-space-xs flex flex-col items-center justify-center gap-0.5 transition-colors text-primary-container" data-path="projects" href="#"><span class="material-symbols-outlined text-[20px]">code_blocks</span><span class="font-label-badge text-[10px] tracking-normal uppercase">Projects</span></a><a class="min-h-[44px] min-w-[44px] px-space-xs flex flex-col items-center justify-center gap-0.5 text-on-surface-variant hover:text-on-surface transition-colors" data-path="skills-&amp;-lab" href="#"><span class="material-symbols-outlined text-[20px]">memory</span><span class="font-label-badge text-[10px] tracking-normal uppercase">Lab</span></a><a class="min-h-[44px] min-w-[44px] px-space-xs flex flex-col items-center justify-center gap-0.5 text-on-surface-variant hover:text-on-surface transition-colors" data-path="contact" href="#"><span class="material-symbols-outlined text-[20px]">mail</span><span class="font-label-badge text-[10px] tracking-normal uppercase">Contact</span></a></div></nav></body></html>
