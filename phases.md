@@ -12,8 +12,8 @@ theme: Kinetic Terminal
 | **Stage 1** | **Page Structure Only** (Scaffold, Headings & Placeholders) | **Completed** | Scaffold created in index.html |
 | **Stage 2** | **Visual Design** (Colours, Typography, Spacing & Hierarchy) | **Completed** | Applied Kinetic Terminal tokens to index.html |
 | **Stage 3** | **Real Content** (Strictly from `Profile.pdf`, Missing data reported) | **Completed** | Integrated profile data; reported missing projects |
-| **Stage 4** | **Components & Interactivity** (Filters, Responsive Navigation) | **Pending Approval** | Awaiting user confirmation to begin |
-| **Stage 5** | **Polish & Responsive Verification** (Mobile/Desktop check, Links) | **Queued** | Final delivery validation |
+| **Stage 4** | **Components & Interactivity** (Filters, Responsive Navigation) | **Completed** | Dynamic filters, telemetry clock, mobile nav, clipboard toast |
+| **Stage 5** | **Polish & Responsive Verification** (Mobile/Desktop check, Links) | **Completed** | SEO meta tags, scroll-reveal animations, parallax hero, cursor blink, `--space-4xl` fix, lazy image, accessibility focus styles |
 
 ---
 

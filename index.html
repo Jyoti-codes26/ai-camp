@@ -3,7 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jyotirmayee Mahapatra | Portfolio - Kinetic Terminal</title>
+    <title>Jyotirmayee Mahapatra | CSE AI & ML Student — Kinetic Terminal</title>
+    <meta name="description" content="Portfolio of Jyotirmayee Mahapatra — CSE AI & ML student at GIET University Gunupur with skills in Cybersecurity, C Programming, and Artificial Intelligence.">
+    <meta name="author" content="Jyotirmayee Mahapatra">
+    <meta property="og:title" content="Jyotirmayee Mahapatra | CSE AI & ML Student">
+    <meta property="og:description" content="Portfolio showcasing skills in Cybersecurity, AI, and systems programming.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Jyotirmayee Mahapatra | Portfolio">
+    <meta name="twitter:description" content="CSE AI & ML student at GIET University Gunupur — Cybersecurity, C Programming, AI.">
     <!-- Google Fonts: Space Grotesk, Inter, JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -51,6 +59,7 @@
             --space-xl: 2rem;
             --space-2xl: 3rem;
             --space-3xl: 4.5rem;
+            --space-4xl: 6rem;
             --max-width: 72rem; /* 1152px */
             
             --radius-sm: 0.25rem;
@@ -816,7 +825,7 @@
                 
                 <div class="hero-content">
                     <span class="section-tag">PORTFOLIO // OVERVIEW</span>
-                    <h1>Jyotirmayee Mahapatra</h1>
+                    <h1 class="hero-cursor">Jyotirmayee Mahapatra</h1>
                     <p class="hero-headline">Student at GIET University Gunupur</p>
                     <div class="hero-location">
                         <span class="material-symbols-outlined" style="font-size: 18px; color: var(--accent-secondary);">location_on</span>
@@ -845,7 +854,9 @@
                         <!-- Background with Unsplash Stock Visual -->
                         <img src="https://images.unsplash.com/photo-1522383225653-ed111181a951?auto=format&fit=crop&w=1920&q=80" 
                              alt="Soft bokeh cherry blossoms background" 
-                             style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: brightness(0.65);">
+                             loading="lazy"
+                             id="sakura-bg-img"
+                             style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: brightness(0.65); transition: transform 0.1s linear;">
                         <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(11, 15, 23, 0.4) 0%, rgba(17, 24, 39, 0.95) 100%);"></div>
                         
                         <!-- Floating Title in Saira Extra Condensed -->
@@ -883,7 +894,7 @@
 
         <!-- 3. About / Profile Summary -->
         <section id="about">
-            <div class="section-header">
+            <div class="section-header reveal">
                 <span class="section-tag">01 // PROFILE_SUMMARY</span>
                 <h2>About / Profile Summary</h2>
             </div>
@@ -917,12 +928,12 @@
 
         <!-- 4. Skills -->
         <section id="skills">
-            <div class="section-header">
+            <div class="section-header reveal">
                 <span class="section-tag">02 // CORE_COMPETENCIES</span>
                 <h2>Skills</h2>
             </div>
             <div class="skills-grid">
-                <div class="kt-card skill-card-inner">
+                <div class="kt-card skill-card-inner reveal reveal-delay-1">
                     <div class="skill-icon-wrap">
                         <span class="material-symbols-outlined">security</span>
                     </div>
@@ -933,7 +944,7 @@
                     </div>
                 </div>
 
-                <div class="kt-card skill-card-inner">
+                <div class="kt-card skill-card-inner reveal reveal-delay-2">
                     <div class="skill-icon-wrap">
                         <span class="material-symbols-outlined">terminal</span>
                     </div>
@@ -944,7 +955,7 @@
                     </div>
                 </div>
 
-                <div class="kt-card skill-card-inner">
+                <div class="kt-card skill-card-inner reveal reveal-delay-3">
                     <div class="skill-icon-wrap">
                         <span class="material-symbols-outlined">forum</span>
                     </div>
@@ -959,7 +970,7 @@
 
         <!-- 5. Projects Showcase -->
         <section id="projects">
-            <div class="section-header">
+            <div class="section-header reveal">
                 <span class="section-tag">03 // ENGINEERING_SHOWCASE</span>
                 <h2>Projects Showcase</h2>
             </div>
@@ -1001,7 +1012,7 @@
 
         <!-- 6. Education -->
         <section id="education">
-            <div class="section-header">
+            <div class="section-header reveal">
                 <span class="section-tag">04 // ACADEMIC_TRAJECTORY</span>
                 <h2>Education</h2>
             </div>
@@ -1054,7 +1065,7 @@
 
         <!-- 7. Certifications -->
         <section id="certifications">
-            <div class="section-header">
+            <div class="section-header reveal">
                 <span class="section-tag">05 // VERIFIED_CREDENTIALS</span>
                 <h2>Certifications</h2>
             </div>
@@ -1079,7 +1090,7 @@
 
         <!-- 8. Contact -->
         <section id="contact">
-            <div class="section-header">
+            <div class="section-header reveal">
                 <span class="section-tag">06 // DIRECT_COMMS</span>
                 <h2>Contact</h2>
             </div>
@@ -1139,7 +1150,7 @@
                     NODE // JYOTIRMAYEE_MAHAPATRA · GIET_GUNUPUR
                 </div>
                 <div>
-                    THEME // KINETIC_TERMINAL · STAGE_04 // INTERACTIVE
+                    THEME // KINETIC_TERMINAL · STAGE_05 // POLISHED
                 </div>
             </div>
         </div>
@@ -1179,7 +1190,51 @@
         <span id="toast-msg">Email copied to clipboard</span>
     </div>
 
-    <!-- Stage 4 Interactive Logic -->
+    <!-- Stage 5: Scroll Reveal System -->
+    <style>
+        /* Scroll-reveal animation system */
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+
+        /* Cursor blink on hero h1 */
+        .hero-cursor::after {
+            content: '_';
+            animation: cursorBlink 1.1s step-end infinite;
+            color: var(--accent-primary);
+        }
+        @keyframes cursorBlink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* Sakura poster hover lift */
+        .sakura-editorial-wrap {
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
+        }
+        .sakura-editorial-wrap:hover {
+            transform: translateY(-6px) scale(1.008);
+            box-shadow: 0 28px 60px rgba(0,0,0,0.65) !important;
+        }
+
+        /* Improved focus outline for accessibility */
+        a:focus-visible, button:focus-visible {
+            outline: 2px solid var(--accent-primary);
+            outline-offset: 3px;
+            border-radius: var(--radius-sm);
+        }
+    </style>
+
+    <!-- Stage 4 + 5 Interactive Logic -->
     <script>
         // 1. Live Telemetry UTC Clock
         function updateTelemetryClock() {
@@ -1290,7 +1345,34 @@
             }, observerOptions);
 
             sections.forEach(section => observer.observe(section));
+
+            // Scroll-reveal for all .reveal elements
+            const revealEls = document.querySelectorAll('.reveal');
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        revealObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.12 });
+            revealEls.forEach(el => revealObserver.observe(el));
         });
+
+        // Sakura poster subtle parallax on mousemove
+        const sakuraBg = document.getElementById('sakura-bg-img');
+        const sakuraWrap = sakuraBg ? sakuraBg.closest('.sakura-editorial-wrap') : null;
+        if (sakuraWrap && sakuraBg) {
+            sakuraWrap.addEventListener('mousemove', (e) => {
+                const rect = sakuraWrap.getBoundingClientRect();
+                const xPct = (e.clientX - rect.left) / rect.width - 0.5;
+                const yPct = (e.clientY - rect.top) / rect.height - 0.5;
+                sakuraBg.style.transform = `scale(1.06) translate(${xPct * -12}px, ${yPct * -8}px)`;
+            });
+            sakuraWrap.addEventListener('mouseleave', () => {
+                sakuraBg.style.transform = 'scale(1) translate(0,0)';
+            });
+        }
     </script>
 </body>
 </html>
