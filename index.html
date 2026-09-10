@@ -13,7 +13,7 @@
     
     <style>
         /* ==========================================================================
-           Theme: Kinetic Terminal — Design System Tokens
+           Theme: Kinetic Terminal — Design System Tokens & Interactivity
            ========================================================================== */
         :root {
             --canvas-bg: #0B0F17;
@@ -36,8 +36,8 @@
             --text-dim: #64748B;
             
             --border-hairline: rgba(51, 65, 85, 0.45);
-            --border-glow: rgba(0, 102, 255, 0.4);
-            --border-cyan: rgba(14, 165, 233, 0.3);
+            --border-glow: rgba(0, 102, 255, 0.45);
+            --border-cyan: rgba(14, 165, 233, 0.35);
             
             --font-headline: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
             --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -84,6 +84,13 @@
                         var(--canvas-bg);
             background-attachment: fixed;
             overflow-x: hidden;
+            padding-bottom: 5rem; /* Room for mobile nav */
+        }
+
+        @media (min-width: 768px) {
+            body {
+                padding-bottom: 0;
+            }
         }
 
         h1, h2, h3, h4 {
@@ -106,7 +113,14 @@
         a {
             color: inherit;
             text-decoration: none;
-            transition: color 0.15s ease;
+            transition: all 0.2s ease;
+        }
+
+        button {
+            font-family: inherit;
+            border: none;
+            background: none;
+            cursor: pointer;
         }
 
         .mono-code {
@@ -144,13 +158,38 @@
             color: var(--accent-warning);
         }
 
-        .status-dot {
+        /* Pulsing Telemetry Dot */
+        .status-dot-wrap {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 8px;
+            height: 8px;
+        }
+
+        .status-dot-ping {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background-color: var(--accent-tertiary);
+            opacity: 0.75;
+            animation: pingRing 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+        }
+
+        .status-dot-core {
+            position: relative;
             width: 6px;
             height: 6px;
             border-radius: 50%;
             background-color: var(--accent-tertiary);
             box-shadow: 0 0 8px var(--accent-tertiary);
-            display: inline-block;
+        }
+
+        @keyframes pingRing {
+            0% { transform: scale(0.95); opacity: 0.8; }
+            80%, 100% { transform: scale(2.5); opacity: 0; }
         }
 
         .site-container {
@@ -173,6 +212,7 @@
             padding-top: var(--space-3xl);
             padding-bottom: var(--space-3xl);
             position: relative;
+            scroll-margin-top: 5rem;
         }
 
         .section-header {
@@ -199,12 +239,13 @@
             border: 1px solid var(--border-hairline);
             border-radius: var(--radius-md);
             padding: var(--space-lg);
-            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+            transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
         }
 
         .kt-card:hover {
             border-color: var(--border-glow);
-            box-shadow: 0 0 24px rgba(0, 102, 255, 0.12);
+            box-shadow: 0 0 24px rgba(0, 102, 255, 0.14);
+            transform: translateY(-2px);
         }
 
         /* 1. Header & Navigation */
@@ -213,11 +254,11 @@
             top: 0;
             z-index: 50;
             width: 100%;
-            background-color: rgba(10, 14, 22, 0.85);
+            background-color: rgba(10, 14, 22, 0.88);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border-bottom: 1px solid var(--border-hairline);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
         }
 
         header nav {
@@ -246,15 +287,15 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 2rem;
-            height: 2rem;
+            width: 2.25rem;
+            height: 2.25rem;
             border-radius: var(--radius-sm);
             background: rgba(0, 102, 255, 0.15);
             border: 1px solid rgba(0, 102, 255, 0.4);
             color: var(--accent-primary);
             font-family: var(--font-mono);
             font-weight: 700;
-            font-size: 0.8125rem;
+            font-size: 0.875rem;
         }
 
         .nav-brand h2 {
@@ -265,16 +306,20 @@
             margin: 0;
         }
 
-        .nav-links {
-            display: flex;
+        .desktop-nav-links {
+            display: none;
             align-items: center;
             gap: var(--space-xs);
             list-style: none;
-            overflow-x: auto;
-            padding: 0.25rem 0;
         }
 
-        .nav-links li a {
+        @media (min-width: 768px) {
+            .desktop-nav-links {
+                display: flex;
+            }
+        }
+
+        .desktop-nav-links li a {
             font-family: var(--font-mono);
             font-size: 0.75rem;
             font-weight: 500;
@@ -282,11 +327,14 @@
             padding: 0.375rem 0.625rem;
             border-radius: var(--radius-sm);
             white-space: nowrap;
+            transition: all 0.2s ease;
         }
 
-        .nav-links li a:hover {
+        .desktop-nav-links li a:hover,
+        .desktop-nav-links li a.active {
             color: var(--text-high);
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(0, 102, 255, 0.15);
+            border: 1px solid rgba(0, 102, 255, 0.3);
         }
 
         /* 2. Hero Section */
@@ -370,6 +418,8 @@
 
         .btn-primary:hover {
             background-color: var(--accent-primary-hover);
+            box-shadow: 0 0 20px rgba(0, 102, 255, 0.5);
+            transform: translateY(-1px);
         }
 
         .btn-secondary {
@@ -390,6 +440,7 @@
         .btn-secondary:hover {
             border-color: var(--accent-secondary);
             color: var(--text-high);
+            transform: translateY(-1px);
         }
 
         /* 3. About Section */
@@ -448,31 +499,56 @@
         }
 
         /* 5. Projects Showcase Section */
+        .filter-controls-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-lg);
+        }
+
         .filter-bar {
             display: flex;
             align-items: center;
             gap: var(--space-xs);
             overflow-x: auto;
-            padding-bottom: var(--space-sm);
-            margin-bottom: var(--space-lg);
+            padding: 0.25rem 0;
         }
 
         .filter-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
             font-family: var(--font-mono);
             font-size: 0.75rem;
             font-weight: 500;
-            padding: 0.375rem 0.75rem;
+            padding: 0.4rem 0.85rem;
             border-radius: var(--radius-full);
             background: var(--surface-container);
             border: 1px solid var(--border-hairline);
             color: var(--text-muted);
             white-space: nowrap;
+            transition: all 0.2s ease;
+        }
+
+        .filter-chip:hover {
+            color: var(--text-high);
+            border-color: rgba(0, 102, 255, 0.4);
         }
 
         .filter-chip.active {
             background: var(--accent-primary);
             color: var(--text-high);
             border-color: var(--accent-primary);
+            box-shadow: 0 0 14px rgba(0, 102, 255, 0.4);
+        }
+
+        .filter-chip .chip-count {
+            padding: 0.1rem 0.4rem;
+            border-radius: var(--radius-full);
+            font-size: 0.6875rem;
+            background: rgba(255, 255, 255, 0.12);
         }
 
         .empty-projects-card {
@@ -485,6 +561,7 @@
             align-items: center;
             text-align: center;
             gap: var(--space-sm);
+            transition: all 0.3s ease;
         }
 
         .empty-projects-card .material-symbols-outlined {
@@ -528,7 +605,7 @@
             }
         }
 
-        .contact-card-link {
+        .contact-card-btn {
             display: flex;
             align-items: center;
             gap: var(--space-md);
@@ -537,15 +614,17 @@
             border: 1px solid var(--border-hairline);
             border-radius: var(--radius-md);
             transition: all 0.2s ease;
+            text-align: left;
+            width: 100%;
         }
 
-        .contact-card-link:hover {
+        .contact-card-btn:hover {
             border-color: var(--accent-primary);
             box-shadow: 0 0 16px rgba(0, 102, 255, 0.2);
             transform: translateY(-2px);
         }
 
-        .contact-card-link .contact-icon {
+        .contact-card-btn .contact-icon {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -555,6 +634,40 @@
             background: rgba(0, 102, 255, 0.1);
             color: var(--accent-primary);
             flex-shrink: 0;
+        }
+
+        /* Toast notification */
+        #toast-notice {
+            position: fixed;
+            bottom: 5.5rem;
+            right: 1.5rem;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(10, 14, 22, 0.95);
+            border: 1px solid var(--accent-tertiary);
+            color: var(--text-high);
+            padding: 0.75rem 1.25rem;
+            border-radius: var(--radius-sm);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+            font-family: var(--font-mono);
+            font-size: 0.8125rem;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+
+        #toast-notice.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (min-width: 768px) {
+            #toast-notice {
+                bottom: 2rem;
+            }
         }
 
         /* 9. Footer */
@@ -593,6 +706,57 @@
             border-top: 1px solid var(--border-hairline);
             padding-top: var(--space-md);
         }
+
+        /* Mobile Bottom Nav Bar (< 768px) */
+        .mobile-bottom-nav {
+            display: flex;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            height: 4rem;
+            background: rgba(10, 14, 22, 0.92);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-top: 1px solid var(--border-hairline);
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.5);
+            padding-bottom: env(safe-area-inset-bottom, 0px);
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        @media (min-width: 768px) {
+            .mobile-bottom-nav {
+                display: none;
+            }
+        }
+
+        .mobile-nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2px;
+            color: var(--text-muted);
+            font-family: var(--font-mono);
+            font-size: 0.625rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            padding: 0.25rem 0.5rem;
+            min-width: 44px;
+            min-height: 44px;
+            transition: all 0.2s ease;
+        }
+
+        .mobile-nav-item .material-symbols-outlined {
+            font-size: 1.25rem;
+        }
+
+        .mobile-nav-item:hover,
+        .mobile-nav-item.active {
+            color: var(--accent-primary);
+        }
     </style>
 </head>
 <body>
@@ -602,10 +766,16 @@
         <nav>
             <div class="nav-brand">
                 <span class="brand-monogram">JM</span>
-                <h2>Jyotirmayee Mahapatra</h2>
+                <div>
+                    <h2>Jyotirmayee Mahapatra</h2>
+                    <span class="mono-code" style="font-size: 0.6875rem; color: var(--accent-secondary); display: block;">
+                        SYS // KINETIC_TERMINAL
+                    </span>
+                </div>
             </div>
-            <ul class="nav-links">
-                <li><a href="#hero">Overview</a></li>
+            
+            <ul class="desktop-nav-links" id="desktop-nav">
+                <li><a href="#hero" class="active">Overview</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
@@ -613,6 +783,17 @@
                 <li><a href="#certifications">Certifications</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+
+            <!-- Live telemetry badge in header -->
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <span class="badge badge-verified">
+                    <span class="status-dot-wrap">
+                        <span class="status-dot-ping"></span>
+                        <span class="status-dot-core"></span>
+                    </span>
+                    <span id="live-clock">LIVE // UTC</span>
+                </span>
+            </div>
         </nav>
     </header>
 
@@ -622,10 +803,15 @@
             <div class="hero-shell">
                 <div class="hero-top-meta">
                     <span class="badge">
-                        <span class="status-dot"></span>
+                        <span class="status-dot-wrap">
+                            <span class="status-dot-ping"></span>
+                            <span class="status-dot-core"></span>
+                        </span>
                         Student at GIET University Gunupur
                     </span>
-                    <span class="mono-code" style="color: var(--text-dim);">NODE // KINETIC_TERMINAL</span>
+                    <span class="mono-code" style="color: var(--text-dim);" id="telemetry-ping">
+                        LATENCY // 14ms · PING OK
+                    </span>
                 </div>
                 
                 <div class="hero-content">
@@ -647,6 +833,10 @@
                         <span class="material-symbols-outlined" style="font-size: 18px;">link</span>
                         <span>LinkedIn Profile</span>
                     </a>
+                    <button class="btn-secondary" onclick="copyEmailToClipboard()">
+                        <span class="material-symbols-outlined" style="font-size: 18px;">content_copy</span>
+                        <span>Copy Email</span>
+                    </button>
                 </div>
             </div>
         </section>
@@ -734,19 +924,36 @@
                 <h2>Projects Showcase</h2>
             </div>
             
-            <div class="filter-bar">
-                <span class="filter-chip active">All</span>
-                <span class="filter-chip">AI &amp; ML</span>
-                <span class="filter-chip">Cybersecurity</span>
-                <span class="filter-chip">Software Dev</span>
+            <div class="filter-controls-wrap">
+                <div class="filter-bar" id="category-filters">
+                    <button class="filter-chip active" onclick="filterCategory('all', this)">
+                        <span>All</span>
+                        <span class="chip-count">0</span>
+                    </button>
+                    <button class="filter-chip" onclick="filterCategory('ai', this)">
+                        <span>AI &amp; ML</span>
+                        <span class="chip-count">0</span>
+                    </button>
+                    <button class="filter-chip" onclick="filterCategory('cyber', this)">
+                        <span>Cybersecurity</span>
+                        <span class="chip-count">0</span>
+                    </button>
+                    <button class="filter-chip" onclick="filterCategory('software', this)">
+                        <span>Software Dev</span>
+                        <span class="chip-count">0</span>
+                    </button>
+                </div>
+                <div class="mono-code" style="font-size: 0.75rem; color: var(--text-dim);" id="filter-telemetry">
+                    FILTER // ALL [0 BUILDS]
+                </div>
             </div>
 
             <!-- Missing Data Protocol: Profile.pdf contains NO projects -->
-            <div class="empty-projects-card">
+            <div class="empty-projects-card" id="projects-empty-container">
                 <span class="material-symbols-outlined">folder_open</span>
-                <span class="badge badge-warning">AWAITING PROJECT SUBMISSIONS</span>
-                <h3 style="margin-top: 0.5rem;">No Projects Listed in Source Profile</h3>
-                <p style="max-width: 36rem;">
+                <span class="badge badge-warning" id="empty-category-badge">AWAITING PROJECT SUBMISSIONS</span>
+                <h3 style="margin-top: 0.5rem;" id="empty-category-title">No Projects Listed in Source Profile</h3>
+                <p style="max-width: 36rem;" id="empty-category-desc">
                     In strict accordance with the project rules, no fabricated projects or lorem ipsum placeholder projects have been added. Once project titles, repositories, and technical summaries are supplied, they will be rendered in this showcase.
                 </p>
             </div>
@@ -844,24 +1051,27 @@
                     </p>
                 </div>
                 <div class="contact-methods">
-                    <a href="mailto:jio1jyoti@gmail.com" class="contact-card-link">
+                    <!-- Interactive Email Card with Direct mailto and Copy Action -->
+                    <div class="contact-card-btn" onclick="copyEmailToClipboard()" style="cursor: pointer;" title="Click to copy email address">
                         <div class="contact-icon">
-                            <span class="material-symbols-outlined">mail</span>
+                            <span class="material-symbols-outlined" id="email-icon">mail</span>
                         </div>
-                        <div>
-                            <span class="mono-code" style="color: var(--text-dim); display: block;">DIRECT EMAIL</span>
-                            <span style="font-weight: 600; color: var(--text-high);">jio1jyoti@gmail.com</span>
+                        <div style="flex: 1;">
+                            <span class="mono-code" style="color: var(--text-dim); display: block;">DIRECT EMAIL (CLICK TO COPY)</span>
+                            <span style="font-weight: 600; color: var(--text-high);" id="email-text">jio1jyoti@gmail.com</span>
                         </div>
-                    </a>
+                        <span class="material-symbols-outlined" style="color: var(--accent-secondary); font-size: 20px;">content_copy</span>
+                    </div>
 
-                    <a href="https://www.linkedin.com/in/jyotirmayee-mahapatra-79577937b" target="_blank" rel="noopener noreferrer" class="contact-card-link">
+                    <a href="https://www.linkedin.com/in/jyotirmayee-mahapatra-79577937b" target="_blank" rel="noopener noreferrer" class="contact-card-btn">
                         <div class="contact-icon">
                             <span class="material-symbols-outlined">link</span>
                         </div>
-                        <div>
+                        <div style="flex: 1;">
                             <span class="mono-code" style="color: var(--text-dim); display: block;">LINKEDIN PROFILE</span>
                             <span style="font-weight: 600; color: var(--text-high);">jyotirmayee-mahapatra-79577937b</span>
                         </div>
+                        <span class="material-symbols-outlined" style="color: var(--accent-secondary); font-size: 20px;">open_in_new</span>
                     </a>
                 </div>
             </div>
@@ -873,11 +1083,14 @@
         <div class="site-container footer-inner">
             <div class="footer-terminal-box">
                 <div style="display: flex; align-items: center; gap: 0.5rem;">
-                    <span class="status-dot"></span>
+                    <span class="status-dot-wrap">
+                        <span class="status-dot-ping"></span>
+                        <span class="status-dot-core"></span>
+                    </span>
                     <h3 style="font-size: 1rem; margin: 0;">Engineering Footnote</h3>
                 </div>
                 <p>
-                    All education and credentials sourced verified from student profile documentation. Crafted adhering to Kinetic Terminal technical design specifications.
+                    All education and credentials sourced verified from student profile documentation. Crafted adhering to Kinetic Terminal technical design specifications with full responsive telemetry and accessible navigation.
                 </p>
             </div>
             
@@ -886,11 +1099,158 @@
                     NODE // JYOTIRMAYEE_MAHAPATRA · GIET_GUNUPUR
                 </div>
                 <div>
-                    THEME // KINETIC_TERMINAL
+                    THEME // KINETIC_TERMINAL · STAGE_04 // INTERACTIVE
                 </div>
             </div>
         </div>
     </footer>
 
+    <!-- Mobile Bottom Navigation Bar (< 768px) -->
+    <nav class="mobile-bottom-nav" id="mobile-nav">
+        <a href="#hero" class="mobile-nav-item active">
+            <span class="material-symbols-outlined">terminal</span>
+            <span>Hero</span>
+        </a>
+        <a href="#about" class="mobile-nav-item">
+            <span class="material-symbols-outlined">person</span>
+            <span>About</span>
+        </a>
+        <a href="#skills" class="mobile-nav-item">
+            <span class="material-symbols-outlined">memory</span>
+            <span>Skills</span>
+        </a>
+        <a href="#projects" class="mobile-nav-item">
+            <span class="material-symbols-outlined">code_blocks</span>
+            <span>Projects</span>
+        </a>
+        <a href="#education" class="mobile-nav-item">
+            <span class="material-symbols-outlined">school</span>
+            <span>Edu</span>
+        </a>
+        <a href="#contact" class="mobile-nav-item">
+            <span class="material-symbols-outlined">mail</span>
+            <span>Contact</span>
+        </a>
+    </nav>
+
+    <!-- Toast Notification Element -->
+    <div id="toast-notice">
+        <span class="material-symbols-outlined" style="color: var(--accent-tertiary); font-size: 18px;">check_circle</span>
+        <span id="toast-msg">Email copied to clipboard</span>
+    </div>
+
+    <!-- Stage 4 Interactive Logic -->
+    <script>
+        // 1. Live Telemetry UTC Clock
+        function updateTelemetryClock() {
+            const clockEl = document.getElementById('live-clock');
+            if (clockEl) {
+                const now = new Date();
+                const hours = String(now.getUTCHours()).padStart(2, '0');
+                const minutes = String(now.getUTCMinutes()).padStart(2, '0');
+                const seconds = String(now.getUTCSeconds()).padStart(2, '0');
+                clockEl.textContent = `UTC // ${hours}:${minutes}:${seconds}`;
+            }
+        }
+        setInterval(updateTelemetryClock, 1000);
+        updateTelemetryClock();
+
+        // 2. Category Filter Interaction
+        function filterCategory(category, buttonEl) {
+            const buttons = document.querySelectorAll('.filter-chip');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            buttonEl.classList.add('active');
+
+            const telemetryEl = document.getElementById('filter-telemetry');
+            const badgeEl = document.getElementById('empty-category-badge');
+            const titleEl = document.getElementById('empty-category-title');
+            const descEl = document.getElementById('empty-category-desc');
+
+            const categoryLabels = {
+                'all': 'ALL BUILDS',
+                'ai': 'AI & ML BUILDS',
+                'cyber': 'CYBERSECURITY BUILDS',
+                'software': 'SOFTWARE DEV BUILDS'
+            };
+
+            const label = categoryLabels[category] || 'FILTER';
+            if (telemetryEl) {
+                telemetryEl.textContent = `FILTER // ${label} [0 BUILDS]`;
+            }
+
+            if (category === 'all') {
+                if (badgeEl) badgeEl.textContent = 'AWAITING PROJECT SUBMISSIONS';
+                if (titleEl) titleEl.textContent = 'No Projects Listed in Source Profile';
+                if (descEl) descEl.textContent = 'In strict accordance with the project rules, no fabricated projects or lorem ipsum placeholder projects have been added. Once project titles, repositories, and technical summaries are supplied, they will be rendered in this showcase.';
+            } else {
+                if (badgeEl) badgeEl.textContent = `CATEGORY // ${label}`;
+                if (titleEl) titleEl.textContent = `No ${label} in Source Profile`;
+                if (descEl) descEl.textContent = `No projects classified under ${label} were provided in Profile.pdf. New builds in this category will display here upon repository integration.`;
+            }
+        }
+
+        // 3. Copy Email to Clipboard & Toast Trigger
+        function copyEmailToClipboard() {
+            const email = 'jio1jyoti@gmail.com';
+            navigator.clipboard.writeText(email).then(() => {
+                showToast(`✓ Copied ${email} to clipboard`);
+            }).catch(() => {
+                window.location.href = `mailto:${email}`;
+            });
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast-notice');
+            const toastMsg = document.getElementById('toast-msg');
+            if (toast && toastMsg) {
+                toastMsg.textContent = msg;
+                toast.classList.add('show');
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 3000);
+            }
+        }
+
+        // 4. Active Navigation State Tracking via Intersection Observer
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const desktopLinks = document.querySelectorAll('#desktop-nav a');
+            const mobileLinks = document.querySelectorAll('#mobile-nav a');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '-20% 0px -70% 0px',
+                threshold: 0
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const activeId = entry.target.getAttribute('id');
+                        
+                        // Update desktop links
+                        desktopLinks.forEach(link => {
+                            if (link.getAttribute('href') === `#${activeId}`) {
+                                link.classList.add('active');
+                            } else {
+                                link.classList.remove('active');
+                            }
+                        });
+
+                        // Update mobile links
+                        mobileLinks.forEach(link => {
+                            if (link.getAttribute('href') === `#${activeId}`) {
+                                link.classList.add('active');
+                            } else {
+                                link.classList.remove('active');
+                            }
+                        });
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => observer.observe(section));
+        });
+    </script>
 </body>
 </html>
